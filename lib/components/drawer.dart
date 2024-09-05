@@ -11,29 +11,29 @@ class MyDrawer extends StatelessWidget {
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.secondary,
       elevation: 0,
-
       child: Column(
         children: [
-           Column(
+          Column(
             children: [
               DrawerHeader(
-                    padding: const EdgeInsets.only(top: 50),
-                    child: Column(
-                      children: [
-                        Text('Menu'),
-                        CupertinoSwitch(value: Provider.of<ThemeProvider>(context).isDarkmode,
-                         onChanged:(value)=> Provider.of<ThemeProvider>(context,listen: false).themeToogle())
-                      ],
-                    ),
-                    ), 
-
-              ListTile(
+                padding: const EdgeInsets.only(top: 50),
+                child: Column(
+                  children: [
+                    const Text('Menu'),
+                    CupertinoSwitch(
+                        value: Provider.of<ThemeProvider>(context).isDarkmode,
+                        onChanged: (value) =>
+                            Provider.of<ThemeProvider>(context, listen: false)
+                                .themeToogle())
+                  ],
+                ),
+              ),
+              const ListTile(
                 leading: Icon(Icons.home),
-                title: Text('Home'),                
+                title: Text('Home'),
               )
             ],
-           ) 
-  
+          )
         ],
       ),
     );
